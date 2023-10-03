@@ -1,5 +1,5 @@
 #import a col from the excel spreedsheet into the R
-B<-read.delim("Original data")
+B<-read.csv("Original-data.csv")
 B<-B[,1]
 #Using Beverton-Holt driven production model to calculate corresponding ideal catch
 ##Our parameter all based on the Yellow Sea anchovy information

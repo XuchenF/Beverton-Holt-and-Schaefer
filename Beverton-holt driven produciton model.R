@@ -32,7 +32,7 @@ h<-0.66
 b<-(h-0.2)/(0.2*k-0.2*h*k)
 a<-(k*(1-exp(-1*M))*(1+b*k))/k
 B<-data.frame(matrix(ncol=1, nrow=length(C[,1]))+1)
-F<-data.frame(matrix(ncol=1, norw=length(C[,1])))
+F<-data.frame(matrix(ncol=1, nrow=length(C[,1])))
 Binit<-c(k*0.6,k*0.8)
 B[1,1]<-(Binit[1]+Binit[2])/2
 

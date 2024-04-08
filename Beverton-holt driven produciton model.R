@@ -25,7 +25,8 @@ C[i,j]=((log(10*B[i,j])-M)/log(10*B[i,j]))*B[i,j]+(a*B[i,j]/(1+b*B[i,j]))-B[i+1,
 }
 }
 
-
+B<-data.frame(matrix(ncol=1, nrow=34))
+F<-data.frame(matrix(ncol=1, nrow=33))
 Binit<-c((max(C[,2])/1.76+4*max(C[,2])/0.98)/2*0.6, Binit<-(max(C[,2])/1.76+4*max(C[,2])/0.98)/2*0.8)
 for(i in 1:length(C[,1])){
 if(i-1<1){

@@ -37,7 +37,7 @@ Binit<-c(k*0.6,k*0.8)
 B[1,1]<-(Binit[1]+Binit[2])/2
 
 for(i in 1:length(C[,1])){
-  if(C[i,2]>B[i,1]){
+  if(C[i,2]<B[i,1]){
 y=function(x){x/(x+M)*B[i,1]*(1-exp(-1*(x+M)))-C[i,2]}
 so<-uniroot(y, interval = c(0, 17))
 F[i,1]<-so$root

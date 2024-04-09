@@ -6,7 +6,7 @@ b<-(h-0.2)/(0.2*k-0.2*h*k)
 a<-(k*(1-exp(-1*M))*(1+b*k))/k
 
 
-#import a col from the excel spreedsheet into the R
+#import biomass simulation from the excel spreedsheet into the R
 B<-read.csv("Biomass-simulation.csv")
 #Using Beverton-Holt driven production model to calculate corresponding ideal catch
 ##All the parameters are based on the Yellow Sea anchovy information

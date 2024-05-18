@@ -1,7 +1,9 @@
 #all processes were conducted in R2jags package
 library(R2jags)
 
-jags.data<- c('ct','btj', "SSB",'nyr', 'prior.k', 'startbio', 'q.priorj',"Q.priorj","init.Q",'init.q','init.h','init.k','pen.bk','pen.F','b.yrs','bk.beta','CV.C','CV.cpue','nbks')
+nyr<-length(ct)
+N<-length(SSB)
+jags.data<- c('ct','btj', "SSB","N",'nyr', 'prior.k', 'startbio', 'q.priorj',"Q.priorj","init.Q",'init.q','init.h','init.k','pen.bk','pen.F','b.yrs','bk.beta','CV.C','CV.cpue','nbks')
 
 jags.save.params <- c('h','k','q',"Q",'P','ct.jags','cpuem', "cpuemm",'proc.logB','B','F')#if run the Schsefer function, use r to replace h.
 
@@ -39,7 +41,7 @@ pen.bk[t] ~ dnorm(penm[t],10000)
 cpuem[t]  <- log(q*P[t]*k);
 btj[t]     ~ dlnorm(cpuem[t],pow(sigma2,-1));
 }
-for(t in 1:13){
+for(t in 1:N){
 cpuemm[t]<-log(Q*P[t]*k)
 SSB[t]~dlnorm(cpuemm[t], pow(sigma2,-1))
 }#we used two data to represent the biomass index, therefore there are two catchabilities need to be estimated
@@ -108,7 +110,7 @@ pen.bk[t] ~ dnorm(penm[t],10000)
 cpuem[t]  <- log(q*P[t]*k);
 btj[t]     ~ dlnorm(cpuem[t],pow(sigma2,-1));
 }
-for(t in 1:13){
+for(t in 1:N){
 cpuemm[t]<-log(Q*P[t]*k)
 SSB[t]~dlnorm(cpuemm[t], pow(sigma2,-1))
 }
@@ -187,7 +189,7 @@ pen.bk[t] ~ dnorm(penm[t],10000)
 cpuem[t]  <- log(q*P[t]*k);
 btj[t]     ~ dlnorm(cpuem[t],pow(sigma2,-1));
 }
-for(t in 1:13){
+for(t in 1:N){
 cpuemm[t]<-log(Q*P[t]*k)
 SSB[t]~dlnorm(cpuemm[t], pow(sigma2,-1))
 }

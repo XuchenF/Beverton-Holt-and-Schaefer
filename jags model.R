@@ -5,7 +5,7 @@ nyr<-length(ct)
 N<-length(SSB)
 jags.data<- c('ct','btj', "SSB","N",'nyr', 'prior.k', 'startbio', 'q.priorj',"Q.priorj","init.Q",'init.q','init.h','init.k','pen.bk','pen.F','b.yrs','bk.beta','CV.C','CV.cpue','nbks')
 
-jags.save.params <- c('h','k','q',"Q",'P','ct.jags','cpuem', "cpuemm",'proc.logB','B','F')#if run the Schsefer function, use r to replace h.
+jags.save.params <- c('h','k','q',"Q",'P','ct.jags','cpuem', "cpuemm",'proc.logB','B','F')#if run the Schsefer function, use r to replace h. And x is added in BHDPF2.
 
 j.inits <- function(){list("h"=rlnorm(1, mean=log(init.h), sd=0.17), "k"=rlnorm(1, mean=log(init.k), sd=0.2),"q"=rlnorm(1,mean=log(init.q),sd=0.2),"Q"=rlnorm(1,mean=log(init.Q),sd=0.2),"itau2"=1000,"isigma2"=1000)}
 #if run the Schsefer function, use r and init.r to replace h and init.h.

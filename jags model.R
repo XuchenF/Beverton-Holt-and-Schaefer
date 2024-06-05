@@ -82,7 +82,7 @@ F[t] <- ct.jags[t]/B[t]
 #BHDPF
 Model = "model{
 eps<-0.01
-m<-0.59#setting natural mortality
+m<-0.9#setting natural mortality
 for(t in 1:nyr){
 ct.jags[t] ~ dlnorm(log(ct[t]),pow(CV.C,-2))
 }
@@ -151,7 +151,7 @@ F[t] <- ct.jags[t]/B[t]
 #BHDPF2
 Model = "model{
 eps<-0.01
-m<-0.59
+m<-0.9
 for(t in 1:nyr){
 ct.jags[t] ~ dlnorm(log(ct[t]),pow(CV.C,-2))
 }
